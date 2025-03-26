@@ -5,10 +5,10 @@ const cheerio = require('cheerio');
 const app = express();
 
 const config = {
-    web: 'https://37vxhylsosxof.ahost.marscode.site/zirviuswebcode.html',
+    web: 'https://37vxhylsosxof.ahost.marscode.site/source/1file/2file/zirviuswebcode.txt',
     ids: {
         arceusandroid: 'Arceus-X',
-        codexandroid: 'Codex',
+        CodexAndroid: 'Codex',
         fluxus: 'Fluxus',
         hydrogen: 'Hydrogen',
         deltaandroid: 'Delta',
@@ -18,6 +18,7 @@ const config = {
         valyse: 'Valyse',
         cubixandroid: 'Cubix',
         cryptic: 'Cryptic',
+        krnl: 'Krnl'
     }
 };
 
@@ -66,7 +67,4 @@ app.get('/api', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server berjalan di port ${PORT}`);
-});
+module.exports = app;
