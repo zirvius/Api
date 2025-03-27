@@ -1,1 +1,808 @@
-<div>Hello, World</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Executor Roblox</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a0505;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+            position: relative; 
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+
+        .container-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .box {
+            width: 100%;
+            height: 55px;
+            background-color: #4d4949;
+            color: #ff0b0b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border: 3px solid red;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .box2 {
+            width: 100%;
+            height: 55px;
+            background-color: rgb(77, 73, 73);
+            color: #ff0b0b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border: 3px solid red;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: auto;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container2 {
+            width: 79.3%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @keyframes rainbow-border {
+            0% {
+                border-color: red;
+            }
+            14% {
+                border-color: orange;
+            }
+            28% {
+                border-color: yellow;
+            }
+            42% {
+                border-color: green;
+            }
+            57% {
+                border-color: blue;
+            }
+            71% {
+                border-color: indigo;
+            }
+            85% {
+                border-color: violet;
+            }
+            100% {
+                border-color: red;
+            }
+        }
+
+        .kotak {
+            background-color: rgba(51, 51, 51, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            width: 205px;
+            text-align: center;
+            color:#0cf7ff;
+            border-color: 5px solid black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 3px solid red;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .kotak:hover {
+            padding: 23px;
+            width: 205px;
+            transform: scale(1.01);
+            transform-origin: center;
+            background: #1616168e;
+            border: 3px rgba(255, 0, 0, 0.7);
+            box-shadow: 0 0 15px 15px rgba(255, 0, 0, 0.7);
+            color: #ff0000;
+        }
+
+        .kotak img {
+            width: 100%;
+            height: 205px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0cf7ff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 5px;
+            border: 1px solid #000000;
+            border-radius: 15px;
+            text-decoration: none;
+            border: 3px solid red;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dropdown-button:hover {
+          padding: 13px 5px;
+          color: rgb(255, 0, 0);
+          background-color: #0a0a0a;
+          border: #0cf7ff;
+          box-shadow: 0 0 15px 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .download-button:hover {
+          padding: 13px 5px;
+          color: rgb(255, 0, 0);
+          background-color: #0a0a0a;
+          border: #0cf7ff;
+          box-shadow: 0 0 15px 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .download-buttoniw {
+            color:#0be3ff;
+            text-decoration: none;
+            transition: 0.4s ease;
+        }
+
+        .download-buttoniw:hover {
+            color:rgb(255, 0, 0);
+            border-bottom: 2px solid rgb(255, 0, 0);
+        }
+
+        .download-buttonflux1, .download-buttonflux2 {
+          background-color: #0cf7ff;
+          color: #000000;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          font-weight: bold;
+          width: 90px;
+          height: 20px;
+          padding: 10px 5px;
+          border: 1px solid #000000;
+          border-radius: 15px;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 3px solid red;
+          transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .download-buttonflux1:hover, .download-buttonflux2:hover {
+          padding: 13px 8px;
+          color: rgb(255, 0, 0);
+          background-color: #0a0a0a;
+          border: #0cf7ff;
+          box-shadow: 0 0 15px 10px rgba(255, 0, 0, 0.7);
+        }
+
+        .button-container {
+          display: flex;
+          gap: 10px;
+          justify-content: center;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgb(77, 73, 73);
+          color: #000000;
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          font-weight: bold;
+          width: auto;
+          padding: 10px 5px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: color 0.5s ease;
+        }
+
+        .dropbtn img {
+          object-fit: cover;
+          width: 30px;
+          height: 28px;
+        }
+
+        .dropbtn:hover {
+          color:#ff0b0b;
+        }
+
+        .dropdown-content {
+            display: block;
+            position: absolute;
+            background-color: #4d4949;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 10px; 
+            border: 3px solid rgb(255, 21, 21);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease, max-height 1s ease; 
+            transform: translateY(-10px);
+            margin-top: 3px; 
+            overflow: hidden; 
+            max-height: 0; 
+        }
+
+        .dropdown-content.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 200px; 
+        }
+
+        .dropdown-content a {
+            color: black;
+            background-color: #4d4949;
+            padding: 7px 10px;
+            text-decoration: none;
+            border-top: 3px solid #ff0b0b;
+            margin: 0;
+            transition: color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;            
+            justify-content: space-between; 
+            align-items: center;       
+            width: 100%;         
+            box-sizing: border-box;
+            border-radius: 10%;
+        }
+
+        .dropdown-content a:first-child {
+            border-top: none;
+        }
+
+        .dropdown-content a:hover {
+            color: #ff0000;
+            background-color: #0a0a0a;
+            box-shadow: 0 0 13px 10px rgba(255, 0, 0, 0.7);
+            border-color: red;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 70%;
+                margin: 0 auto;
+                margin-top: 80px;
+            }
+
+            .kotak {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .kotak:hover {
+                width: 80%;
+            }
+
+            .box {
+                padding: 0 10px;
+            }
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 20px;
+            position: relative;
+            border: 3px solid red; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 18px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: #333; 
+            color: white;
+        }
+        .search-bar i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #e4e4e4;
+        }
+
+        .filter-buttons {
+          margin-bottom: 10px;
+          display: flex;
+          gap: 10px;
+          justify-content: center; 
+          align-items: center;
+          width: 100%; 
+        }
+        .filter-buttons button {
+            border-color: 4px solid red;
+            color: red;
+            background-color: #444;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .filter-buttons button.active {
+            background-color: #888;
+        }
+        .filter-buttons button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="container-wrapper">
+    <div class="box">
+        <strong class="dropdown">
+            <a class="dropbtn" onclick="toggleDropdown()"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" alt="arceus"></a>
+            <div class="dropdown-content" id="myDropdown">
+            <a id="allButton" onclick="filterExecutors('all')">All</a>
+                <a id="androidButton" onclick="filterExecutors('android')">Android</a>
+                <a id="iosButton" onclick="filterExecutors('ios')">Ios</a>
+                <a id="adminButton" onclick="filterExecutors('admin')">Admin</a>
+                <a href="./apiexecutor.html">Api</a>
+            </div>
+        </strong>
+        <strong>Executor Android + Ios</strong>
+        <span><strong>Made By Zirvius</strong></span>
+    </div>
+    
+    <div class="container" id="content-container">
+
+        <div class="search-bar">
+            <input id="searchInput" onkeyup="searchExecutors()" placeholder="Search Name Executor Or Executor Version  (If you write the version that Arceus does not exist)" type="text"/>
+            <i class="fas fa-search">
+            </i>
+        </div>
+
+        <div class="container2" id="android-container">
+
+            <div class="box2" id="android-box"><strong>Android</strong></div>
+
+            <div class="kotak">
+            <img src="https://files.catbox.moe/ynxoab.png" alt="arceus">
+            <h1>Arceus X</h1>
+            <p><strong>Version: 1.6.0</strong></p>
+            <a href="https://android.spdmteam.com/" class="download-button" id="arceusandroid">Click Here To Download</a>
+            </div>        
+            <div class="kotak">
+            <img src="https://cdn.discordapp.com/emojis/1293446314117435473.webp?size=96&quality=lossless" alt="Image 2">
+            <h1>Codex</h1>
+            <p><strong>Version: 2.665</strong></p>
+            <a href="https://www.mediafire.com/file/pb7w6l12892805q/Codex+v2.665.apk/file" class="download-button" id="CodexAndroid">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/66cr2c.png" alt="fluxus">
+            <h1>Fluxus</h1>
+            <p></p><strong>Version: v70.1</strong></p>
+            <a href="https://webfiles.pro/file/Fluxus70.apk" class="download-button" id="fluxus">Click Here</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/h8akaz.png" alt="Hydrogen">
+            <h1>Hydrogen</h1>
+            <p></p><strong>Version: 2.628</strong></p>
+            <a href="https://archive.org/download/hydrogen-latest/HYDROGEN%202.628.388.apk" class="download-button" id="hydrogen">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://cdn.discordapp.com/emojis/1293446182298976328.webp?size=96&quality=lossless" alt="delta">
+            <h1>Delta</h1>
+            <p><strong>Version: 2.662</strong></p>
+            <a href="https://deltaexploits.gg/android_dl" class="download-button" id="deltaandroid">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://cdn.discordapp.com/emojis/1293444835377942599.webp?size=96&quality=lossless" alt="Trigon">
+            <h1>Trigon</h1>
+            <strong>Version: 2.665</strong><p></p>
+            <a href="https://www.mediafire.com/file/1nfqw82bkns9jmu/Trigon_v2.665.684.apk/file" class="download-button" id="trigon">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/9enb7p.png" alt="vegax">
+            <h1>Vega X</h1>
+            <p><strong>Version: 2.665</strong></p>
+            <a href="https://github.com/1f0yt/community/releases/download/Vegax/Vega.X.apk" class="download-button" id="vegax">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/plcb2q.png" alt="evon">
+            <h1>Evon</h1>
+            <p><strong>Version: 2.6??</strong></p>
+            <a href="https://evon.cc/android/dl-a/Evon.apk" class="download-button" id="evon">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/nw56uw.png" alt="alysee">
+            <h1>Alysee</h1>
+            <p><strong>Version: 2.641</strong></p>
+            <a href="/whatareyoudoinghere.html" class="download-button" id="alysee">Nothing</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/hcxvxu.png" alt="valyse">
+            <h1>Valyse</h1>
+            <p><strong>Version: 2.617</strong></p>
+            <a href="https://www.mediafire.com/file/0h573ar8d8lx72r/Valyse+V3+v2.617.apk/file" class="download-button" id="valyse">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/8y4et7.png" alt="cubix">
+            <h1>Cubix</h1>
+            <strong>Version: 2.662</strong><p></p>
+            <a href="https://www.mediafire.com/file/4aj4l5qp21h8035/Cubix+-+2.662.537.apk/file" class="download-button" id="cubixandroid">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/01j4dg.png" alt="cryptic">
+            <h1>Cryptic</h1>
+            <strong>Version: 2.665</strong><p></p>
+            <a href="https://www.mediafire.com/file/ihzxcyzci5jypgw/Cryptic_2.665.684_APK.apk/file" class="download-button" id="cryptic">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="" alt="cryptic">
+            <h1>Krnl</h1>
+            <strong>Version: 2.665</strong><p></p>
+            <a href="https://cdnwrd2.com/r/54921/1742853390397/krnl_release_2.665.684_2025.3.23_19.apk" class="download-button" id="krnl">Click Here To Download</a>
+            </div>
+        </div>
+    
+        <div class="container2" id="ios-container">
+
+            <div class="box2" id="ios-box"><strong>Ios</strong></div>
+
+            <div class="kotak">
+            <img src="https://files.catbox.moe/ynxoab.png" alt="arceus">
+            <h1>Arceus X</h1>
+            <p><strong>Version: 1.5.4</strong></p>
+            <a href="ios.spdmteam.com" class="download-button" id="arceusios">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://cdn.discordapp.com/emojis/1293446314117435473.webp?size=96&quality=lossless" alt="Image 2">
+            <h1>Codex</h1>
+            <p><strong>Version: 2.664</strong></p>
+            <a href="https://codex.lol/download/ios" class="download-button" id="codexios">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://cdn.discordapp.com/emojis/1293446182298976328.webp?size=96&quality=lossless" alt="delta">
+            <h1>Delta</h1>
+            <p><strong>Version: 2.660</strong></p>
+            <a href="https://deltaexploits.gg/ios_dl" class="download-button" id="deltaios">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/8y4et7.png" alt="cubix">
+            <h1>Cubix</h1>
+            <strong>Version: 2.640</strong><p></p>
+            <a href="https://www.mediafire.com/file/wz3hdicny80w5cd/Cubix_2.640.730_1725408589.ipa/file" class="download-button" id="cubixios">Click Here To Download</a>
+            </div>
+            <div class="kotak">
+            <img src="https://files.catbox.moe/01j4dg.png" alt="cryptic">
+            <h1>Cryptic</h1>
+            <strong>Version: 2.660</strong><p></p>
+            <a href="https://www.mediafire.com/file/aahwztf05uzlhqo/Cryptic_2.660.649.ipa/file" class="download-button" id="cryptic">Click Here To Download</a>
+            </div>
+        </div>
+        
+        <div class="container2" id="admin-container">
+
+            <div class="box2" id="admin-box"><strong>Admin</strong></div>
+
+            <div class="kotak">
+            <img src="https://files.catbox.moe/ynxoab.png" alt="arceus">
+            <h1>Arceus X</h1>
+            <p><strong>Version: ???</strong></p>
+            <a href="" class="download-button" id="arceusadmin">Nothing</a>
+            </div>
+
+            <div class="box2">
+            <strong id="id-number"></strong>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      // dropdown
+      function toggleDropdown() {
+        var dropdown = document.getElementById("myDropdown");
+        dropdown.classList.toggle("show");
+      }
+
+      window.onclick = function(event) {
+        if (!event.target.closest('.dropdown')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          for (var i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
+              }
+          }
+        }
+      }
+      // search executor
+      function searchExecutors() {
+            var input, filter, cards, h1, p, i, txtValueH1, txtValueP;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            cards = document.getElementsByClassName('kotak');
+
+            var androidBoxVisible = false;
+            var iosBoxVisible = false;
+
+            for (i = 0; i < cards.length; i++) {
+                h1 = cards[i].getElementsByTagName('h1')[0];
+                p = cards[i].getElementsByTagName('p')[0];
+                txtValueH1 = h1.textContent || h1.innerText;
+                txtValueP = p.textContent || p.innerText;
+                
+                if (txtValueH1.toUpperCase().indexOf(filter) > -1 || txtValueP.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                    if (cards[i].closest('#android-container')) {
+                        androidBoxVisible = true;
+                    } else if (cards[i].closest('#ios-container')) {
+                        iosBoxVisible = true;
+                    }
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+
+            document.getElementById('android-box').style.display = androidBoxVisible ? "" : "none";
+            document.getElementById('ios-box').style.display = iosBoxVisible ? "" : "none";
+        }
+
+        function filterExecutors(type) {
+            var androidContainer = document.getElementById('android-container');
+            var iosContainer = document.getElementById('ios-container');
+            var adminContainer = document.getElementById('admin-container');
+            var allButton = document.getElementById('allButton');
+            var androidButton = document.getElementById('androidButton');
+            var iosButton = document.getElementById('iosButton');
+            var adminButton = document.getElementById('adminButton');
+
+            if (type === 'all') {
+                allButton.classList.add('active');
+                androidButton.classList.remove('active');
+                iosButton.classList.remove('active');
+                adminButton.classList.remove('active');
+
+                androidContainer.style.display = "";
+                iosContainer.style.display = "";
+                adminContainer.style.display = "";
+            } else if (type === 'android') {
+                allButton.classList.remove('active');
+                androidButton.classList.add('active');
+                iosButton.classList.remove('active');
+                adminButton.classList.remove('active');
+
+                androidContainer.style.display = "";
+                iosContainer.style.display = "none";
+                adminContainer.style.display = "none";
+            } else if (type === 'ios') {
+                allButton.classList.remove('active');
+                androidButton.classList.remove('active');
+                iosButton.classList.add('active');
+                adminButton.classList.remove('active');
+
+                androidContainer.style.display = "none";
+                iosContainer.style.display = "";
+                adminContainer.style.display = "none";
+            } else if (type === 'admin') {
+                allButton.classList.remove('active');
+                androidButton.classList.remove('active');
+                iosButton.classList.remove('active');
+                adminButton.classList.add('active');
+
+                androidContainer.style.display = "none";
+                iosContainer.style.display = "none";
+                adminContainer.style.display = "";
+            }
+
+            window.onload = function() {
+              filterExecutors('all'); 
+            };
+        }
+    </script>
+    <script src="https://37vxhylsosxof.ahost.marscode.site/source/antiskidcodeobf.js"></script>
+    <script src="https://37vxhylsosxof.ahost.marscode.site/source/gatauahobf.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#00ffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00ffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 200,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            var posX = e.clientX;
+            var posY = e.clientY;
+            var particles = window.pJSDom[0].pJS.particles.array;
+
+            var canvas = document.querySelector('#particles-js > canvas');
+            var ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(function(particle) {
+                var dx = posX - particle.x;
+                var dy = posY - particle.y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 200) {
+                    ctx.beginPath();
+                    ctx.moveTo(particle.x, particle.y);
+                    ctx.lineTo(posX, posY);
+                    ctx.strokeStyle = 'rgba(0, 255, 255, ' + (1 - dist / 200) + ')';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
